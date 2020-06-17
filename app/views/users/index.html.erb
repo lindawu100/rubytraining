@@ -1,2 +1,6 @@
-<%= link_to '登入', '/login' %>
-<%= link_to '註冊', '/sign_up' %>
+<% if current_user %>
+  <%= link_to '新建任務', new_task_path %>
+<% else %>
+  <%= link_to '登入', '/login' %>
+  <%= link_to '註冊', '/sign_up' %>
+<% end %>
