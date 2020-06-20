@@ -1,0 +1,31 @@
+<h1>新建任務</h1>
+<%= form_for @task, url: tasks_path do |f| %>
+  <% if @task.errors.any? %>
+    <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= f.label :title, '任務名稱' %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :priority, '優先順位' %>
+    <%= f.select :priority, Task.priorities.keys, {}%>
+  </div>
+  <div>
+    <%= f.label :status, '狀態' %>
+    <%= f.select :status, Task.statuses.keys, {}%>
+  </div>
+  <div>
+    <%= f.label :start_at, '開始時間' %>
+    <%= f.text_field :start_at %>
+  </div>
+  <div>
+    <%= f.label :end_at, '結束時間' %>
+    <%= f.text_field :end_at %>
+  </div>
+  <%= f.submit '提交' %>
+<% end %>
