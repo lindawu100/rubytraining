@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get "/sign_up", to: "users#sign_up"
   post "/sign_up", to: "users#registration"
 
-  resources :task
+  resources :tasks
 end
